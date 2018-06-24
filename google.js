@@ -5,13 +5,17 @@ function initMap() {
   });
   var geocoder = new google.maps.Geocoder();
 
-  document.getElementById('submit').addEventListener('click', function() {
+  document.getElementById('submit').addEventListener('click', function(e) {
     geocodeAddress(geocoder, map);
+    e.preventDefault()
   });
 }
 
 function geocodeAddress(geocoder, resultsMap) {
-  var address = document.getElementById('address').value;
+  let city = document.getElementById('city').value
+  let state = document.getElementById('state').value
+  let country = document.getElementById('country').value
+  var address = city + ',' + state +',' + country
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === 'OK') {
       resultsMap.setCenter(results[0].geometry.location);
