@@ -1,24 +1,41 @@
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 8,
-    center: {lat: -34.397, lng: 150.644}
+    center: {lat: 49.2827291, lng: -123.12073750000002}
   });
   var geocoder = new google.maps.Geocoder();
 
   document.getElementById('submit').addEventListener('click', function(e) {
     geocodeAddress(geocoder, map);
-    e.preventDefault()
+    
+    // const coords = new Coords(address)
+    // console.log('coords.getCoords() in google.js')
+    // coords.getCoords()
+    
   });
 }
 
 function geocodeAddress(geocoder, resultsMap) {
+
   let city = document.getElementById('city').value
   let state = document.getElementById('state').value
   let country = document.getElementById('country').value
+  if(city === '') {
+    city = 'Toronto'
+    state = 'ON'
+    country = 'Canada'
+  }
   var address = city + ',' + state +',' + country
+  console.log(`Address from google.js: ${address}`)
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === 'OK') {
+      // console.log(results[0].geometry.location.lat())
+      // console.log(results[0].geometry.location.lng())
+      // console.log(results[0].geometry.location)
       resultsMap.setCenter(results[0].geometry.location);
+      const weather = new Weather(results[0].geometry.location.lat(), results[0].geometry.location.lng())
+      weather.getWeather()
+      console.log('getWeather from google.js geocoder.geocode')
       var marker = new google.maps.Marker({
         map: resultsMap,
         position: results[0].geometry.location
@@ -26,24 +43,11 @@ function geocodeAddress(geocoder, resultsMap) {
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
+    // const lat = results[0].geometry.location.lat()
+    // const lng = results[0].geometry.location.lng()
+    // console.log(lat, lng)
+    // console.log('test')
+    
   });
 }
 
-/*
-// Google Maps Platform API key AIzaSyDNmdL0UoyvDYAhB7l5UF7L_1_Y5lcIBCI
-
-{
- address: string,
- location: LatLng,
- placeId: string,
- bounds: LatLngBounds,
- componentRestrictions: GeocoderComponentRestrictions,
- region: string
-}
-
-Test URL: https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDNmdL0UoyvDYAhB7l5UF7L_1_Y5lcIBCI
-
-fetch('https://maps.googleapis.com/maps/api/geocode/json?address=4346+Barker+Ave,+Burnaby,+BC,+Canada&key=AIzaSyDNmdL0UoyvDYAhB7l5UF7L_1_Y5lcIBCI')
-.then(res => res.json())
-.then(data => {console.log(data)})
-*/
