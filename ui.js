@@ -44,65 +44,15 @@ class UI {
     
     let weatherType = weather.currently.icon
 
-  var skycons = new Skycons({"color": "yellow"});
-  // // on Android, a nasty hack is needed: {"resizeClear": true}
+  var skycons = new Skycons({"color": "yellow"}, {"resizeClear": true});
+  // on Android, a nasty hack is needed: {"resizeClear": true}
 
-  // // you can add a canvas by it's ID...
-  // skycons.add("icon2", Skycons.CLEAR_DAY);
-  skycons.add("icon2", weatherType);
-  // skycons.set("icon2", weatherType);
+  // skycons.add("icon2", weatherType);
+  skycons.set("icon2", weatherType);
 
-  // // ...or by the canvas DOM element itself.
-  // skycons.add(document.getElementById("icon2"), Skycons.RAIN);
-
-  // // if you're using the Forecast API, you can also supply
-  // // strings: "partly-cloudy-day" or "rain".
-
-  // // start animation!
+  // start animation!
   skycons.play();
 
-  // // you can also halt animation with skycons.pause()
-
-  // // want to change the icon? no problem:
-  // skycons.set("icon1", Skycons.PARTLY_CLOUDY_NIGHT);
-
-
-  //   function skycons() {
-//     var i,
-//         icons = new Skycons({
-//             "color" : "#FFFFFF",
-//             "resizeClear": true // nasty android hack
-//         }),
-//         list  = [ // listing of all possible icons
-//             "clear-day",
-//             "clear-night",
-//             "partly-cloudy-day",
-//             "partly-cloudy-night",
-//             "cloudy",
-//             "rain",
-//             "sleet",
-//             "snow",
-//             "wind",
-//             "fog"
-//         ];
-
-// // loop thru icon list array
-// for(i = list.length; i--;) {
-//     var weatherType = list[i], // select each icon from list array
-//             // icons will have the name in the array above attached to the 
-//             // canvas element as a class so let's hook into them.
-//             elements    = document.getElementsByClassName( weatherType );
-
-//     // loop thru the elements now and set them up
-//     for (let e = elements.length; e--;) {
-//         icons.set(elements[e], weatherType);
-//     }
-// }
-//  icons.add("icon1")
-// // animate the icons
-// icons.play();
-// }
-// skycons()
-
+  // you can also halt animation with skycons.pause()
   }
 }
