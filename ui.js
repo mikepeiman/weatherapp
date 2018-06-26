@@ -22,13 +22,13 @@ class UI {
       this.state = 'BC'
       this.country = 'Canada'
     }
-    this.address = this.city + ', ' + this.state +', ' + this.country
+    let address = this.city + ', ' + this.state +', ' + this.country
    
   }
 
   paint(weather) {
-    // this.location.innerHTML = address
-    this.location.textContent = this.address
+    this.location.textContent = this.city + ', ' + this.state +', ' + this.country
+    // this.location.textContent = this.address
     this.descDaily.textContent = weather.daily.summary
     this.descHourly.textContent = weather.hourly.summary
     this.descMinutely.textContent = weather.minutely.summary

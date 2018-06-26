@@ -73,18 +73,14 @@
                       
                       <div class="modal-footer">
                           <input type="button" value="Apply" id="submit" class="weather-change btn btn-info mb-3"></input>
-                          <input type="button" value="Close" data-dismiss="modal" class="weather-change btn btn-secondary mb-3"></input>
-                          <input type="button" value="Save & Close" id="save-and-close" class="weather-change btn btn-success mb-3"></input>
+                          <input type="button" value="Close" data-dismiss="modal" class="btn btn-secondary mb-3"></input>
+                          <input type="button" value="Save & Close" id="save-and-close" class="btn btn-success mb-3"></input>
                         </div>  
                     </form>
                     <div id="map"></div>
-            
-            
                   </div>
                 </div>
               </div>
-
-
       </div>
     </div>
   </div>
@@ -101,9 +97,11 @@
     <script src="..\List_Country_State-master\countries.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch-jsonp/1.0.6/fetch-jsonp.min.js"></script>
     <script src="weather.js"></script>
-    <script src="google.js"></script>
-    <script src="..\skycons-master\skycons.js"></script>
     <script src="ui.js"></script>
+    <script src="google.js"></script>
+    
+    <script src="..\skycons-master\skycons.js"></script>
+ 
     <script src="app.js"></script>
     <script>
       populateCountries("country", "state"); // first parameter is id of country drop-down and second parameter is id of state drop-down

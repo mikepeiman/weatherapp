@@ -19,6 +19,17 @@ class Weather {
     // console.log(`Lat: ${this.lat}, Lng: ${this.lng}`)
     console.log(responseData)
     console.log('getWeather results promise from weather.js')
+    ui.paint(responseData)
+    let city = document.getElementById('city').value
+    let state = document.getElementById('state').value
+    let country = document.getElementById('country').value
+    if(city === '') {
+      city = 'Vancouver'
+      state = 'BC'
+      country = 'Canada'
+    }
+    var address = city + ', ' + state +', ' + country
+    document.getElementById('w-location').textContent = address
     return responseData
   }
   
@@ -26,8 +37,10 @@ class Weather {
     this.city = city
     this.state = state
     this.country = country
+
+    }
   }
-}
+
 // console.log(`From weather.js, Lat: ${results[0].geometry.location.lat()}`)
 
 // fetchJsonp('https://api.darksky.net/forecast/8fcc777cf23420861993877a39a0489c/49.2827291,-123.12073750000002')

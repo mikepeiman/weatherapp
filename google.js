@@ -1,3 +1,5 @@
+const ui = new UI()
+
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 8,
@@ -27,7 +29,7 @@ function geocodeAddress(geocoder, resultsMap) {
     country = 'Canada'
   }
   var address = city + ', ' + state +', ' + country
-  document.getElementById('w-location').innerHTML = address
+  document.getElementById('w-location').textContent = address
   console.log(`Address from google.js: ${address}`)
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === 'OK') {
