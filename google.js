@@ -5,8 +5,9 @@ function initMap() {
   });
   var geocoder = new google.maps.Geocoder();
 
-  document.getElementById('submit').addEventListener('click', function(e) {
-    geocodeAddress(geocoder, map);
+  document.getElementById('submit').addEventListener('click', function() {
+    geocodeAddress(geocoder, map)
+    $('#locationModal').modal('hide')
     
     // const coords = new Coords(address)
     // console.log('coords.getCoords() in google.js')

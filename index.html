@@ -19,7 +19,7 @@
         <h3 id="w-desc-minutely">w-desc</h3>
         <h3 id="w-string">w-string</h3>
         <h3 id="w-temp">w-temp</h3>
-        <img id="w-icon">
+        <img id="w-icon"><canvas id="icon2" width="128" height="128"></canvas>
         <ul class="list-group mt-3" id="w-details">
           <li class="list-group-item" id="w-humidity">w-humidity</li>
           <li class="list-group-item" id="w-pressure">w-dewpoint</li>
@@ -48,47 +48,49 @@
           </button>
         </div>
         <div class="modal-body">
+            <div class="container">
+                <div class="row">
+                  <div class="col-md-6 mx-ato text-center bg-primary mt-5 p-5 rounded">
+                      <div id="floating-panel">
+                        <form>
+                                      <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" class="form-control" autocomplete="address-level2">
+                          </div>
+                          <div class="form-group">
+                            <label for="country">Country</label>
+                            <select id="country" name="country" class="form-control" autocomplete="country-name">Country</select>
+                            <!-- <input type="text" id="country" class="form-control"> -->
+                          </div>
+                          <div class="form-group">
+                            <label for="state">State</label>
+                            <select name="state" id="state" class="form-control" autocomplete="address-level1">State</select>
+                            <!-- <input type="text" id="state" class="form-control"> -->
+                          </div>
+                          <!-- <input id="address" type="textbox" value="Sydney, NSW"> -->
+                          <!-- <input id="submit" type="button" value="Geocode"> -->
+                      </div>
+                      
+                      <div class="modal-footer">
+                          <input type="button" value="Apply" id="submit" class="weather-change btn btn-info mb-3"></input>
+                          <input type="button" value="Close" data-dismiss="modal" class="weather-change btn btn-secondary mb-3"></input>
+                          <input type="button" value="Save & Close" id="save-and-close" class="weather-change btn btn-success mb-3"></input>
+                        </div>  
+                    </form>
+                    <div id="map"></div>
+            
+            
+                  </div>
+                </div>
+              </div>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button id="w-changeBtn" type="button" class="btn btn-primary">Save changes</button>
-        </div>
+
       </div>
     </div>
   </div>
   </div>
   
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 mx-ato text-center bg-primary mt-5 p-5 rounded">
-          <div id="floating-panel">
-            <form>
-                          <div class="form-group">
-                <label for="city">City</label>
-                <input type="text" id="city" class="form-control" autocomplete="address-level2">
-              </div>
-              <div class="form-group">
-                <label for="country">Country</label>
-                <select id="country" name="country" class="form-control" autocomplete="country-name">Country</select>
-                <!-- <input type="text" id="country" class="form-control"> -->
-              </div>
-              <div class="form-group">
-                <label for="state">State</label>
-                <select name="state" id="state" class="form-control" autocomplete="address-level1">State</select>
-                <!-- <input type="text" id="state" class="form-control"> -->
-              </div>
-              <!-- <input id="address" type="textbox" value="Sydney, NSW"> -->
-              <!-- <input id="submit" type="button" value="Geocode"> -->
-          </div>
-          <input type="button" value="Geocode" id="submit" class="btn btn-info mb-3"></input>
-          <input type="button" value="Test" id="submit-2" class="btn btn-info mb-3"></input>
-        </form>
-        <div id="map"></div>
-
-
-      </div>
-    </div>
-  </div>
+  
   
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -100,9 +102,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch-jsonp/1.0.6/fetch-jsonp.min.js"></script>
     <script src="weather.js"></script>
     <script src="google.js"></script>
-    <!-- <script src="darksky.js"></script> -->
-
-    <!-- <script src="coords.js"></script> -->
+    <script src="..\skycons-master\skycons.js"></script>
     <script src="ui.js"></script>
     <script src="app.js"></script>
     <script>

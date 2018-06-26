@@ -6,12 +6,14 @@ const ui = new UI()
 document.addEventListener('DOMContentLoaded', getWeather)
 
 // change location event
-document.getElementById('w-change-btn').addEventListener('click', (e) => {
+document.querySelector('.weather-change').addEventListener('click', (e) => {
   const city = document.getElementById('city').value
   const state = document.getElementById('state').value
   const country = document.getElementById('country').value
 
   weather.changeLocation(city, state, country)
+  getWeather()
+  $('#locationModal').modal('hide')
 })
 
 function getWeather() {
