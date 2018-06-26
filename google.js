@@ -21,11 +21,12 @@ function geocodeAddress(geocoder, resultsMap) {
   let state = document.getElementById('state').value
   let country = document.getElementById('country').value
   if(city === '') {
-    city = 'Toronto'
-    state = 'ON'
+    city = 'Vancouver'
+    state = 'BC'
     country = 'Canada'
   }
-  var address = city + ',' + state +',' + country
+  var address = city + ', ' + state +', ' + country
+  document.getElementById('w-location').innerHTML = address
   console.log(`Address from google.js: ${address}`)
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === 'OK') {

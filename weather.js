@@ -13,13 +13,13 @@ class Weather {
 
   async getWeather() {
     console.log('weather.js, fetching result via JSONP...')
-    const response = await fetchJsonp(`https://api.darksky.net/forecast/${this.apiKey}/${this.lat},${this.lng}`)
+    const response = await fetchJsonp(`https://api.darksky.net/forecast/${this.apiKey}/${this.lat},${this.lng}?units=ca`)
     const responseData = await response.json()
     // console.log('weather.js, after darkSky call...')
     // console.log(`Lat: ${this.lat}, Lng: ${this.lng}`)
     console.log(responseData)
     console.log('getWeather results promise from weather.js')
-    return responseData.currently
+    return responseData
   }
   
   changeLocation(city, state, country) {
