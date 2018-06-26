@@ -14,13 +14,15 @@
     <div class="row">
       <div class="col-md-6 mx-ato text-center bg-primary mt-5 p-5 rounded">
         <h1 id="w-location">w-location</h1>
-        <h3 id="w-desc-daily">w-desc</h3>
+        <input id="lat" type="button" value="Lat: "></input>
+        <input id="lng" type="button" value="Lng: "></input>
         <h3 id="w-desc-hourly">w-desc</h3>
-        <h3 id="w-desc-minutely">w-desc</h3>
-        <h3 id="w-string">w-string</h3>
-        <h3 id="w-temp">w-temp</h3>
-        <img id="w-icon"><canvas id="icon2" width="128" height="128"></canvas>
+        <!-- <h3 id="w-desc-minutely">w-desc</h3> -->
+        <canvas id="icon2" width="128" height="128"></canvas>
+        <p id="w-desc-daily">w-desc</p>        
+        <!-- <h3 id="w-string">w-string</h3> -->        
         <ul class="list-group mt-3" id="w-details">
+          <li class="list-group-item" id="w-temp">w-temp</li>
           <li class="list-group-item" id="w-humidity">w-humidity</li>
           <li class="list-group-item" id="w-pressure">w-dewpoint</li>
           <li class="list-group-item" id="w-feels-like">w-feels-like</li>
@@ -71,10 +73,10 @@
                           <!-- <input id="submit" type="button" value="Geocode"> -->
                       </div>
                       
-                      <div class="modal-footer">
-                          <input type="button" value="Apply" id="submit" class="weather-change btn btn-info mb-3"></input>
-                          <input type="button" value="Close" data-dismiss="modal" class="btn btn-secondary mb-3"></input>
-                          <input type="button" value="Save & Close" id="save-and-close" class="btn btn-success mb-3"></input>
+                      <div class="modal-footer form-row text-center">
+                          <input type="button" value="Apply" id="submit" class="btn btn-info mb-3"></input>
+                          <!-- <input type="button" value="Close" data-dismiss="modal" class="btn btn-secondary mb-3"></input> -->
+                          <!-- <input type="button" value="Save & Close" id="save-and-close" class="btn btn-success mb-3"></input> -->
                         </div>  
                     </form>
                     <div id="map"></div>
@@ -99,6 +101,7 @@
     <script src="weather.js"></script>
     <script src="ui.js"></script>
     <script src="google.js"></script>
+    <script src="storage.js"></script>
     
     <script src="..\skycons-master\skycons.js"></script>
  

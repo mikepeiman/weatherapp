@@ -3,8 +3,8 @@ class UI {
     this.location = document.getElementById('w-location')
     this.descDaily = document.getElementById('w-desc-daily')
     this.descHourly = document.getElementById('w-desc-hourly')
-    this.descMinutely = document.getElementById('w-desc-minutely')
-    this.string = document.getElementById('w-string')
+    // this.descMinutely = document.getElementById('w-desc-minutely')
+    // this.string = document.getElementById('w-string')
     this.temp = document.getElementById('w-temp')
     this.icon2 = document.getElementById('icon2')
     this.icon = document.getElementById('w-icon')
@@ -17,23 +17,29 @@ class UI {
     this.state = document.getElementById('state').value
     this.country = document.getElementById('country').value
     
-    if(this.city === '') {
+ 
+}
+  
+
+  paint(weather) {
+    let address
+    if(this.city === '' && localStorage.getItem('address') === '') {
       this.city = 'Vancouver'
       this.state = 'BC'
       this.country = 'Canada'
-    }
-    let address = this.city + ', ' + this.state +', ' + this.country
-   
-  }
-
-  paint(weather) {
-    this.location.textContent = this.city + ', ' + this.state +', ' + this.country
+    } 
+    if(localStorage.getItem('address') !== '') {
+      this.location.textContent = localStorage.getItem('address')
+    } else {
+      this.location.textContent = this.city + ', ' + this.state +', ' + this.country
+    } 
+    // this.location.textContent =  this.city + ', ' + this.state +', ' + this.country
     // this.location.textContent = this.address
     this.descDaily.textContent = weather.daily.summary
     this.descHourly.textContent = weather.hourly.summary
-    this.descMinutely.textContent = weather.minutely.summary
-    this.string.textContent = weather.currently.summary
-    this.temp.textContent = weather.currently.temperature
+    // this.descMinutely.textContent = weather.minutely.summary
+    // this.string.textContent = weather.currently.summary
+    this.temp.textContent = `Temperature: ${weather.currently.temperature}`
     // this.icon.setAttribute('src', weather.currently.icon)
     // this.icon2.setAttribute('src', weather.currently.icon)
     // this.details.textContent = weather.timezone

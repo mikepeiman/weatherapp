@@ -39,6 +39,7 @@ function geocodeAddress(geocoder, resultsMap) {
       resultsMap.setCenter(results[0].geometry.location);
       const weather = new Weather(results[0].geometry.location.lat(), results[0].geometry.location.lng())
       weather.getWeather()
+      storage.setLocationData(results[0].geometry.location.lat(), results[0].geometry.location.lng(), address)
       console.log('getWeather from google.js geocoder.geocode')
       var marker = new google.maps.Marker({
         map: resultsMap,

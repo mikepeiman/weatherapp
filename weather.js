@@ -23,6 +23,12 @@ class Weather {
     let city = document.getElementById('city').value
     let state = document.getElementById('state').value
     let country = document.getElementById('country').value
+    let UILat = document.getElementById('lat')
+    let UILng = document.getElementById('lng')
+    // let fixedLat = (this.lat).toFixed(5)
+    // let fixedLng = (this.lng).toFixed(5)
+    UILat.value = `Latitude: ${this.lat}`
+    UILng.value = `Longitude: ${this.lng}`
     if(city === '') {
       city = 'Vancouver'
       state = 'BC'
@@ -32,13 +38,12 @@ class Weather {
     document.getElementById('w-location').textContent = address
     return responseData
   }
-  
-  changeLocation(city, state, country) {
-    this.city = city
-    this.state = state
-    this.country = country
 
-    }
+  changeLocation(lat, lng) {
+    this.lat = lat
+    this.lng = lng
+  }
+
   }
 
 // console.log(`From weather.js, Lat: ${results[0].geometry.location.lat()}`)
